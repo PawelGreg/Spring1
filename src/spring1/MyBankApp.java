@@ -1,11 +1,12 @@
 package spring1;
 
-import spring1.model.CurrentAccount;
-import spring1.model.SavingAccount;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyBankApp {
     public static void main(String[] args) {
-        Account account = new CurrentAccount();
+        //Account account = new CurrentAccount();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Account account = context.getBean("myAccount",Account.class);
         System.out.println(account.createAccount());
     }
 }
