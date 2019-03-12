@@ -3,7 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-        <bean   id="myAccount"
-                class="spring1.model.CurrentAccount" />
+        <bean   id="myCard"
+                class="spring1.model.CreditCard"/>
+        <!--<bean   id="myAccount"
+                class="spring1.model.SavingAccount" >
+                <constructor-arg ref="myCard" />
+        </bean>-->
+        <bean id="myAccount"
+              class="spring1.model.CurrentAccount"
+              autowire="byType"
+              scope="prototype">
+                <!--<property name="creditCard" ref="myCard"/>-->
+        </bean>
 
 </beans>
